@@ -36,4 +36,28 @@ class MyPiratesApplicationTests {
 		assertEquals(2, found.size());
 	}
 
+	@Test
+	public void canFindPirateYoungerThan30(){
+		List<Pirate> found = pirateRepo.findByAgeLessThan(30);
+		assertEquals(1, found.size());
+	}
+
+	@Test
+	public void canFindByFirstName(){
+		List<Pirate> found = pirateRepo.findByFirstName("Jack");
+		assertEquals(1, found.size());
+	}
+
+	@Test
+	public void canFindByLastName(){
+		List<Pirate> found = pirateRepo.findByLastName("Kid");
+		assertEquals(1, found.size());
+	}
+
+	@Test
+	public void canFindByNameAndAge(){
+		List<Pirate> found = pirateRepo.findByFirstNameIgnoreCaseAndAge("billie", 12);
+		assertEquals(1, found.size());
+	}
+
 }
